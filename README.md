@@ -8,10 +8,12 @@ A dead-simple, easy-to-use billing application.
 You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https://github.com/DexterLagan/invoicer/releases/).
 
 # Features
-- total;
+- tiny (14 MB compressed);
+- portable;
 - sales tax;
 - localization;
 - pay interval;
+- totals calculation;
 - free as in free beer;
 - export to HTML, PDF and print;
 - automatic billing and due dates;
