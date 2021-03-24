@@ -8,18 +8,18 @@ A dead-simple, easy-to-use billing application.
 You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https://github.com/DexterLagan/invoicer/releases/).
 
 # Features
+- totals calculation;
+- sales tax;
+- pay interval;
+- automatic billing and due dates;
+- localization;
+- export to HTML, PDF and print;
+- preliminary support for currencies;
+- invoice number tracking accross an unlimited number of recurring clients.
 - tiny (14 MB compressed);
 - portable;
-- sales tax;
-- localization;
-- pay interval;
-- totals calculation;
-- free as in free beer;
-- export to HTML, PDF and print;
-- automatic billing and due dates;
-- preliminary support for currencies;
 - cross-platform (Windows 32 and 64 bits, Linux and MacOSX);
-- invoice number tracking accross an unlimited number of recurring clients.
+- free and open source.
 
 ## Acknowledgements
 
