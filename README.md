@@ -7,6 +7,8 @@ A dead-simple, easy-to-use billing application.
 You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https://github.com/DexterLagan/invoicer/releases/).
 
 # Features
+- produces an invoice in **one click**;
+- documents **automatically titled** with invoice number, date and client name;
 - **totals** calculation;
 - sales **tax**;
 - pay **interval**;
