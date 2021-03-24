@@ -280,14 +280,6 @@
 (unless invoice-folder
   (die "No invoice folder specified. Exiting."))
 
-; gather invoice folder from command line parameter
-;(define invoice-folder
-;  (command-line #:program *appname*
-;                #:args (invoice-folder)
-;                invoice-folder))
-; unit test
-;(define invoice-folder "Mercury")
-
 ; check for style sheet file
 (unless (file-exists? *style-sheet-file*)
   (die "Style sheet file not found. Exiting."))
