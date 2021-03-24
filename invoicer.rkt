@@ -358,7 +358,7 @@
                  " - "                                               ;  - 
                  (get-short-date-str creation-date locale) ; 19/03/2020
                  " - "                                               ;  - 
-                 payor-name))                                        ; Mercury Filmworks (CW) Inc
+                 payor-name))                                        ; Autospeed AutoParts Inc
 
 ; generate invoice HTML
 (define invoice-content
