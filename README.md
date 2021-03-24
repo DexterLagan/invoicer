@@ -14,7 +14,7 @@ You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https:/
 - pay **interval**;
 - automatic billing and **due dates**;
 - localization;
-- export to **HTML**, **PDF** and **print**;
+- **simultaneous** export to **HTML**, **PDF** and **printer**;
 - **invoice number tracking** accross an unlimited number of **recurring clients**.
 - **tiny** (14 MB compressed);
 - **portable**;
