@@ -19,6 +19,7 @@ You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https:/
 - **tiny** (14 MB compressed);
 - **portable**;
 - **cross-platform** (Windows 32 and 64 bits, Linux and MacOSX);
+- adheres to the moto 'the best interface is no interface';
 - **free** and open source.
 
 ## Setup
