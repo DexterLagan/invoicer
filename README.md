@@ -1,5 +1,5 @@
 # Invoicer
-A dead-simple, easy-to-use billing application.
+A dead-simple, easy-to-use minimalist billing application.
 
 <p align="center"><img src="screenshots/sample-invoice.png"></p>
 
