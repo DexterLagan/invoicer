@@ -37,6 +37,7 @@
 ; - branch-address.txt - containing the bank branch address;
 ; - account-info.txt   - containing the bank account information;
 ; - invoice-lines.txt  - containing the invoice lines.
+; run the program and the invoice will be generated inside the folder, sent to PDF and the printer at once.
 
 ;;; version history
 
@@ -221,13 +222,16 @@
     (filter number?
             (map string->number formatted-prices-str)))
 
-  (define total
+  (define total-before-tax
     (apply + prices))
 
   (define tax
-    (* total (/ tax-rate 100)))
-    
-  (values tax total))
+    (* total-before-tax (/ tax-rate 100)))
+
+  (define total-after-tax
+    (+ total-before-tax tax))
+  
+  (values tax total-after-tax))
 
 ;; returns a number contained in a file if it exists, #f otherwise
 (define (file->number? file)
@@ -358,7 +362,7 @@
                  " - "                                               ;  - 
                  (get-short-date-str creation-date locale) ; 19/03/2020
                  " - "                                               ;  - 
-                 payor-name))                                        ; Autospeed AutoParts Inc
+                 payor-name))                                        ; AutoSpeed AutoParts Inc
 
 ; generate invoice HTML
 (define invoice-content
