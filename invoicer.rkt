@@ -155,6 +155,7 @@
                        information-block
                        payment-method-block
                        item-lines
+                       tax-name
                        tax-amount
                        total-amount)
   (xml->string
@@ -177,8 +178,8 @@
                   payment-method-block
                   ((build-line "heading") "Item" "Price")
                   (build-items item-lines)
-                  ((build-line "HST") "" (string-append "Tax (HST): " tax-amount))
-                  ((build-line "total") "" (string-append "Total: " total-amount)))))))))
+                  ((build-line "detail") "" (string-append "Tax (" tax-name "): " tax-amount))
+                  ((build-line "total")  "" (string-append "Total: " total-amount)))))))))
 
 ;; returns the top block (logo on the left, invoice data (number + dates) on the right)
 (define (build-top-block logo-file invoice-number creation-date due-date locale)
@@ -203,13 +204,17 @@
             (td (concat payor-address-lines)))))))
 
 ;; returns a payment method block
-;; types: 'check 'transfert
-(define (build-payment-method-block type check-number account-info-lines branch-address-lines)
+;; types: 'check 'transfert 'credit-card
+(define (build-payment-method-block type type-or-check-number account-info-lines branch-address-lines)
   (case type
-    ((check)     (list ((build-line "heading") "Payment Method" "Check #")
-                       ((build-line "details") "Check" check-number)))
-    ((transfert) (list ((build-line "heading") "Account Information" "Branch Address")
-                       ((build-line "details") (concat account-info-lines) (concat branch-address-lines))))))
+    ((credit-card) (list ((build-line "heading") "Payment Method" "Type")
+                         ((build-line "details") "Credit Card"    type-or-check-number)))
+    
+    ((check)       (list ((build-line "heading") "Payment Method" "Check #")
+                         ((build-line "details") "Check"          type-or-check-number)))
+    
+    ((transfert)   (list ((build-line "heading") "Account Information"       "Branch Address")
+                         ((build-line "details") (concat account-info-lines) (concat branch-address-lines))))))
 
 ;; returns item blocks, handles the last one correctly
 (define (build-items lines)
@@ -281,8 +286,8 @@
       (let ((l (string-split (file->string file) *separator*)))
         (if (and (list? l)
                  (= 2 (length l)))
-         (values (first l) (second l))
-         (die "Incorrect " file " format. Exiting.")))
+            (values (first l) (second l))
+            (die "Incorrect " file " format. Exiting.")))
       (die "Missing " file ". Exiting.")))
 
 ;; write an HTML invoice file given the invoice number
@@ -332,31 +337,33 @@
 (current-directory invoice-folder)
 
 ; read invoice files
-(define-values
-  (payment-method-str check-number-str)
-                             (file->values? *payment-method-file*))
+(define-values (payment-method-str type-or-check-number)
+  (file->values? *payment-method-file*))
+(define-values (tax-name tax-rate-str)
+  (file->values? *tax-rate-file*))
 (define account-info-lines   (file->lines?  *account-info-file*))
 (define branch-address-lines (file->lines?  *branch-address-file*))
 (define payee-address-lines  (file->lines?  *payee-file*))
 (define payor-address-lines  (file->lines?  *payor-file*))
 (define invoice-number       (file->number? *invoice-number-file*))
 (define pay-interval         (file->number? *pay-interval-file*))
-(define tax-rate             (file->number? *tax-rate-file*))
 (define locale               (file->string? *locale-file*))
 (define invoice-lines        (file->lines*? *invoice-lines-file*))
 
+; handle tax name and rate
+(define tax-rate
+  (string->number tax-rate-str))
 
 ; set some sensible defaults if files aren't all found
 (unless invoice-number (set! invoice-number 1))
 (unless pay-interval   (set! tax-rate *default-pay-interval*))
 
 ; decode payment method and check number
-(define check-number
-  (string->number check-number-str))
 (define payment-method
   (string->symbol payment-method-str))
 (unless (or (eq? payment-method 'transfert)
-            (eq? payment-method 'check))
+            (eq? payment-method 'check)
+            (eq? payment-method 'credit-card))
   (set! payment-method 'check))
 
 ; check information validity
@@ -391,7 +398,7 @@
 
 ; generate payment method block from given data
 (define payment-method-block
-  (build-payment-method-block payment-method check-number account-info-lines branch-address-lines))
+  (build-payment-method-block payment-method type-or-check-number account-info-lines branch-address-lines))
 
 ; calculate taxes and total
 (define-values (tax-amount total-amount)
@@ -417,6 +424,7 @@
                  information-block
                  payment-method-block
                  invoice-lines
+                 tax-name
                  (string-append "$" (~r tax-amount   #:precision '(= 2)))
                  (string-append "$" (~r total-amount #:precision '(= 2)))))
 
