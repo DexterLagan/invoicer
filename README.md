@@ -48,7 +48,8 @@ Here are examples of payment method file content:<br>
 `check|123`<br>
 or<br>
 `transfert|0`<br>
-Note: the check number is ignored when 'transfert' is selected.
+
+The check number is ignored when 'transfert' is selected.
 
 ## Usage
 Two ways, same result:
