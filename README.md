@@ -16,7 +16,7 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - localization;
 - **simultaneous** export to **HTML**, **PDF** and **printer**;
 - **invoice number tracking** accross an unlimited number of **recurring clients**.
-- **tiny** (14 MB compressed);
+- **tiny** (12 MB compressed);
 - **portable**;
 - **cross-platform** (Windows 32 and 64 bits, Linux and MacOSX);
 - adheres to the moto 'the best interface is no interface';
