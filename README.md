@@ -41,6 +41,15 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - payment-method.txt - containing the payment method and check number separated by a '|' (if applicable).
 3) add a **logo**.
 
+Here is a sample invoice line:
+brake bleed|100.00
+
+Here are examples of payment method file content:
+check|123
+or
+transfert|0
+(the check number is ignored when 'transfert' is selected)
+
 ## Usage
 Two ways, same result:
 1) **Double-click on Invoicer**. Browse for the client folder. Out comes a **new invoice**.
