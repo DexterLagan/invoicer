@@ -24,9 +24,6 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - the best user interface: **no interface**;
 - **free** and open source.
 
-## Planned
-- invoice line composer?
-
 ## Setup
 1) create a folder named after your **client**;
 2) create or copy the **configuration files** inside the client folder;
@@ -68,9 +65,10 @@ Two ways, same result:
 1) **Double-click on Invoicer**. Browse for the client folder. Out comes a **new invoice**.
 2) **Run Invoicer** followed by the folder name **on the command line**. Out comes a **new invoice**.
 
-## What's next
+## Planned
 - currencies. Next version will support specifying one currency per client;
-- global totals and sales tax for filing.
+- global totals and sales tax for filing;
+- an invoice line composer?
 
 ## Acknowledgements
 
