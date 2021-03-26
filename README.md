@@ -41,13 +41,16 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - `payment-method.txt` - containing the payment method and type or check number separated by a '|' (if applicable, see below).
 3) add a **logo**.
 
-Here is a sample tax rate file:<br>
+## Sample Configuration Files
+Here are a few specific configuration files, in particular those which have more than one field, with a separator ('|' by default):
+
+Sample tax rate file:<br>
 `HST|13`
 
-Here is a sample invoice line:<br>
+Sample invoice line (there is no limit to the number of lines stored):<br>
 `brake bleed|100.00`
 
-Here are examples of payment method file content:<br>
+Payment Method file examples:<br>
 `check|123`<br>
 or<br>
 `transfert|0`<br>
