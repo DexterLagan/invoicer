@@ -45,7 +45,7 @@ Here is a sample invoice line:<br>
 `brake bleed|100.00`
 
 Here are examples of payment method file content:<br>
-`check|123`
+`check|123`<br>
 or<br>
 `transfert|0`<br>
 Note: the check number is ignored when 'transfert' is selected.
