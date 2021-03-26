@@ -45,6 +45,7 @@ Here is an exhaustive list of the required configuration files:
 - `invoice-lines.txt`  - containing the invoice lines: a brief description followed by the price, separated by a '|';
 - `payment-method.txt` - containing the payment method and type or check number separated by a '|' (if applicable, see below).
 
+## Examples
 Here are a few sample configuration files, in particular those which have more than one field, with a separator ('|' by default):
 
 Sample tax rate file:<br>
