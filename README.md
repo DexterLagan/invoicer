@@ -47,8 +47,8 @@ Here is a sample invoice line:<br>
 Here are examples of payment method file content:<br>
 `check|123`
 or<br>
-`transfert|0`
-(the check number is ignored when 'transfert' is selected)
+`transfert|0`<br>
+Note: the check number is ignored when 'transfert' is selected.
 
 ## Usage
 Two ways, same result:
