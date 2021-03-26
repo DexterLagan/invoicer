@@ -17,6 +17,7 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - **payment methods** (check, credit card, bank transfert);
 - **simultaneous** export to **HTML**, **PDF** and **printer**;
 - **invoice number tracking** accross an unlimited number of **recurring clients**.
+- create an **unlimited** number of invoices using a **batch** file;
 - **tiny** (12 MB compressed);
 - **portable**;
 - **cross-platform** (Windows 32 and 64 bits, Linux and MacOSX);
