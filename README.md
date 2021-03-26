@@ -35,7 +35,7 @@ You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https:/
 - account-info.txt   - containing the bank account information;
 - invoice-lines.txt  - containing the invoice lines: a brief description followed by the price, separated by a '|';
 - payment-method.txt - containing the payment method and check number separated by a '|' (if applicable).
-4) add a **logo**.
+3) add a **logo**.
 
 ## Usage
 Two ways, same result:
