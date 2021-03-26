@@ -24,7 +24,7 @@ You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https:/
 
 ## Setup
 1) create a folder named after your **client**;
-2) create, copy or edit the following **settings files**:
+2) create or copy the following **settings files** inside the client folder:
 - payee.txt          - containing the company address;
 - payor.txt          - containing the client's address;
 - invoice-number.txt - containing the last current invoice number. Incremented automatically;
