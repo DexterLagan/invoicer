@@ -36,7 +36,8 @@
 ; - locale.txt         - containing the date locale (i.e. 'en');
 ; - branch-address.txt - containing the bank branch address;
 ; - account-info.txt   - containing the bank account information;
-; - invoice-lines.txt  - containing the invoice lines.
+; - invoice-lines.txt  - containing the invoice lines;
+; - payment-method.txt - containing the payment method and check number if applicable.
 ; run the program and the invoice will be generated inside the folder, sent to PDF and the printer at once.
 
 ;;; version history
@@ -62,6 +63,7 @@
 (define *payor-file*          "payor.txt")
 (define *pay-interval-file*   "pay-interval.txt")
 (define *tax-rate-file*       "tax-rate.txt")
+(define *payment-method-file* "payment-method.txt")
 
 ; defaults
 (define *default-tax-rate*     13)   ; 13 %
@@ -79,10 +81,26 @@
                      #:args (param1 ...)
                      (values param1 ...))))))
 
+;; generic message box
+(define msgbox
+  (lambda args
+    (void (message-box *appname* (apply ~a args)))))
+
+;; generic warning message box
+(define show-warning-message
+  (lambda args
+    (void (message-box *appname* (apply ~a args) #f (list 'ok 'caution)))))
+
+;; generic error message box
+(define show-error-message
+  (lambda args
+    (void (message-box *appname* (apply ~a args) #f (list 'ok 'stop)))))
+
 ;; displays an error message and exits the application with error code 1
-(define (die msg)
-  (displayln msg)
-  (exit 1))
+(define die
+  (lambda args
+    (void (message-box *appname* (apply ~a args) #f (list 'ok 'stop)))
+    (exit 1)))
 
 ;; returns a long-format formatted date string
 ;; locale is optionnal, and uses the specified default locale if not specified
@@ -237,25 +255,35 @@
 (define (file->number? file)
   (if (file-exists? file)
       (string->number (file->string file))
-      (die (string-append "Missing " file ". Exiting."))))
+      (die "Missing " file ". Exiting.")))
 
 ;; returns a string contained in a file if it exists, #f otherwise
 (define (file->string? file)
   (if (file-exists? file)
       (file->string file)
-      (die (string-append "Missing " file ". Exiting."))))
+      (die "Missing " file ". Exiting.")))
 
 ;; returns a list of lines contained in a file if it exists, #f otherwise
 (define (file->lines? file)
   (if (file-exists? file)
       (file->lines file)
-      (die (string-append "Missing " file ". Exiting."))))
+      (die "Missing " file ". Exiting.")))
 
 ;; returns a list of lists of lines in a file if it exists, #f otherwise
 (define (file->lines*? file)
   (if (file-exists? file)
       (map (λ (l) (string-split l *separator*)) (file->lines file))
-      (die (string-append "Missing " file ". Exiting."))))
+      (die "Missing " file ". Exiting.")))
+
+;; returns values stored in a file, separated by the separator
+(define (file->values? file)
+  (if (file-exists? file)
+      (let ((l (string-split (file->string file) *separator*)))
+        (if (and (list? l)
+                 (= 2 (length l)))
+         (values (first l) (second l))
+         (die "Incorrect " file " format. Exiting.")))
+      (die "Missing " file ". Exiting.")))
 
 ;; write an HTML invoice file given the invoice number
 (define (write-invoice filename invoice-content invoice-number)
@@ -279,10 +307,14 @@
 ; open folder dialog otherwise.
 (if (> (length args) 0)
     (set! invoice-folder (first args))
-    (set! invoice-folder (get-directory)))
+    (set! invoice-folder (get-directory "Please select a client folder:"
+                                        #f
+                                        (path-only (find-system-path 'run-file))
+                                        null)))
 
 (unless invoice-folder
-  (die "No invoice folder specified. Exiting."))
+  (show-warning-message "No invoice folder specified. Exiting.")
+  (exit 0))
 
 ; check for style sheet file
 (unless (file-exists? *style-sheet-file*)
@@ -300,6 +332,9 @@
 (current-directory invoice-folder)
 
 ; read invoice files
+(define-values
+  (payment-method-str check-number-str)
+                             (file->values? *payment-method-file*))
 (define account-info-lines   (file->lines?  *account-info-file*))
 (define branch-address-lines (file->lines?  *branch-address-file*))
 (define payee-address-lines  (file->lines?  *payee-file*))
@@ -310,9 +345,19 @@
 (define locale               (file->string? *locale-file*))
 (define invoice-lines        (file->lines*? *invoice-lines-file*))
 
+
 ; set some sensible defaults if files aren't all found
 (unless invoice-number (set! invoice-number 1))
 (unless pay-interval   (set! tax-rate *default-pay-interval*))
+
+; decode payment method and check number
+(define check-number
+  (string->number check-number-str))
+(define payment-method
+  (string->symbol payment-method-str))
+(unless (or (eq? payment-method 'transfert)
+            (eq? payment-method 'check))
+  (set! payment-method 'check))
 
 ; check information validity
 (unless (> (length payor-address-lines) 0)
@@ -330,7 +375,7 @@
   (set! logo-file-path
         (build-path (path-only (find-system-path 'run-file)) *logo-file*)))
 (unless (file-exists? logo-file-path)
-  (die (string-append "Missing " *logo-file* ". Exiting.")))
+  (die "Missing " *logo-file* ". Exiting."))
 
 ; initialize date and due date
 (define creation-date  (now))
@@ -346,7 +391,7 @@
 
 ; generate payment method block from given data
 (define payment-method-block
-  (build-payment-method-block 'transfert 001 account-info-lines branch-address-lines))
+  (build-payment-method-block payment-method check-number account-info-lines branch-address-lines))
 
 ; calculate taxes and total
 (define-values (tax-amount total-amount)
