@@ -29,16 +29,16 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 ## Setup
 1) create a folder named after your **client**;
 2) create or copy the following **settings files** inside the client folder:
-- payee.txt          - containing the company address;
-- payor.txt          - containing the client's address;
-- invoice-number.txt - containing the last current invoice number. Incremented automatically;
-- tax-rate.txt       - containing the tax rate (i.e. 13);
-- pay-interval.txt   - containing the pay interval (i.e. 30);
-- locale.txt         - containing the date locale (i.e. 'en');
-- branch-address.txt - containing the bank branch address;
-- account-info.txt   - containing the bank account information;
-- invoice-lines.txt  - containing the invoice lines: a brief description followed by the price, separated by a '|';
-- payment-method.txt - containing the payment method and check number separated by a '|' (if applicable).
+- `payee.txt`          - containing the company address;
+- `payor.txt`          - containing the client's address;
+- `invoice-number.txt` - containing the last current invoice number. Incremented automatically;
+- `tax-rate.txt`       - containing the tax rate (i.e. 13);
+- `pay-interval.txt`   - containing the pay interval (i.e. 30);
+- `locale.txt`         - containing the date locale (i.e. 'en');
+- `branch-address.txt` - containing the bank branch address;
+- `account-info.txt`   - containing the bank account information;
+- `invoice-lines.txt`  - containing the invoice lines: a brief description followed by the price, separated by a '|';
+- `payment-method.txt` - containing the payment method and check number separated by a '|' (if applicable).
 3) add a **logo**.
 
 Here is a sample invoice line:<br>
