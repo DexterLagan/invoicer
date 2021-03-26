@@ -1,1 +1,1 @@
-transfert|001
+credit-card|MasterCard
