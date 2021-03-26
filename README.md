@@ -32,7 +32,7 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - `payee.txt`          - containing the company address;
 - `payor.txt`          - containing the client's address;
 - `invoice-number.txt` - containing the last current invoice number. Incremented automatically;
-- `tax-rate.txt`       - containing the tax rate (i.e. 13);
+- `tax-rate.txt`       - containing the tax name and rate (i.e. HST|13);
 - `pay-interval.txt`   - containing the pay interval (i.e. 30);
 - `locale.txt`         - containing the date locale (i.e. 'en');
 - `branch-address.txt` - containing the bank branch address;
@@ -40,6 +40,9 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - `invoice-lines.txt`  - containing the invoice lines: a brief description followed by the price, separated by a '|';
 - `payment-method.txt` - containing the payment method and check number separated by a '|' (if applicable).
 3) add a **logo**.
+
+Here is a sample tax rate file:<br>
+`HST|13`
 
 Here is a sample invoice line:<br>
 `brake bleed|100.00`
