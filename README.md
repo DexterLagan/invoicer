@@ -10,20 +10,20 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - produces an invoice in **one click**;
 - documents **automatically titled** with invoice number, date and client name;
 - **totals** calculation;
-- sales **tax**;
+- sales **tax name** and **rate**;
 - pay **interval**;
-- automatic billing and **due dates**;
-- localization;
+- automatic **billing, due date**;
+- **localization**;
+- **payment methods** (check, credit card, bank transfert);
 - **simultaneous** export to **HTML**, **PDF** and **printer**;
 - **invoice number tracking** accross an unlimited number of **recurring clients**.
 - **tiny** (12 MB compressed);
 - **portable**;
 - **cross-platform** (Windows 32 and 64 bits, Linux and MacOSX);
-- adheres to the moto 'the best interface is no interface';
+- the best user interface: **no interface**;
 - **free** and open source.
 
 ## Planned
-- more payment methods;
 - invoice line composer?
 
 ## Setup
@@ -38,7 +38,7 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - `branch-address.txt` - containing the bank branch address;
 - `account-info.txt`   - containing the bank account information;
 - `invoice-lines.txt`  - containing the invoice lines: a brief description followed by the price, separated by a '|';
-- `payment-method.txt` - containing the payment method and check number separated by a '|' (if applicable).
+- `payment-method.txt` - containing the payment method and type or check number separated by a '|' (if applicable, see below).
 3) add a **logo**.
 
 Here is a sample tax rate file:<br>
@@ -51,6 +51,8 @@ Here are examples of payment method file content:<br>
 `check|123`<br>
 or<br>
 `transfert|0`<br>
+or<br>
+`credit-card|VISA`
 
 The check number is ignored when 'transfert' is selected.
 
