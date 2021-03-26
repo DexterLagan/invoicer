@@ -4,7 +4,7 @@ A dead-simple, easy-to-use minimalist billing application.
 <p align="center"><img src="screenshots/sample-invoice.png"></p>
 
 # Downloads
-You can <b>download</b> the latest release for <b>Windows x64</b> [HERE](https://github.com/DexterLagan/invoicer/releases/).
+You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://github.com/DexterLagan/invoicer/releases/).
 
 # Features
 - produces an invoice in **one click**;
