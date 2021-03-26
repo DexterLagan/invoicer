@@ -28,7 +28,11 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 
 ## Setup
 1) create a folder named after your **client**;
-2) create or copy the following **settings files** inside the client folder:
+2) create or copy the **configuration files** inside the client folder;
+3) add a **logo**.
+
+## Configuration Files
+Here is an exhaustive list of the required configuration files:
 - `payee.txt`          - containing the company address;
 - `payor.txt`          - containing the client's address;
 - `invoice-number.txt` - containing the last current invoice number. Incremented automatically;
@@ -39,10 +43,8 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - `account-info.txt`   - containing the bank account information;
 - `invoice-lines.txt`  - containing the invoice lines: a brief description followed by the price, separated by a '|';
 - `payment-method.txt` - containing the payment method and type or check number separated by a '|' (if applicable, see below).
-3) add a **logo**.
 
-## Sample Configuration Files
-Here are a few specific configuration files, in particular those which have more than one field, with a separator ('|' by default):
+Here are a few sample configuration files, in particular those which have more than one field, with a separator ('|' by default):
 
 Sample tax rate file:<br>
 `HST|13`
