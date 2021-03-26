@@ -3,10 +3,10 @@ A dead-simple, easy-to-use minimalist billing application.
 
 <p align="center"><img src="screenshots/sample-invoice.png"></p>
 
-# Downloads
+## Downloads
 You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://github.com/DexterLagan/invoicer/releases/).
 
-# Features
+## Features
 - produces an invoice in **one click**;
 - documents **automatically titled** with invoice number, date and client name;
 - **totals** calculation;
@@ -21,6 +21,10 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - **cross-platform** (Windows 32 and 64 bits, Linux and MacOSX);
 - adheres to the moto 'the best interface is no interface';
 - **free** and open source.
+
+## Planned
+- more payment methods;
+- invoice line composer?
 
 ## Setup
 1) create a folder named after your **client**;
