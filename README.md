@@ -67,6 +67,7 @@ Two ways, same result:
 
 ## Planned
 - currencies. Next version will support specifying one currency per client;
+- a way to record each invoice metadata for later retrieval and parsing;
 - global totals and sales tax for filing;
 - an invoice line composer?
 
