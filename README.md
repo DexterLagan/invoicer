@@ -77,4 +77,4 @@ Invoiced is bundled with a [simple html invoice template](https://github.com/spa
 
 ## License
 
-Invoicer is free software; see [LICENSE](https://www.github.com/DexterLagan/invoicer/main/LICENSE) for more details.
+Invoicer is free software; see [LICENSE](https://github.com/DexterLagan/invoicer/blob/main/LICENSE) for more details.
