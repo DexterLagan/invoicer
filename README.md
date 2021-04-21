@@ -74,3 +74,7 @@ Two ways, same result:
 ## Acknowledgements
 
 Invoiced is bundled with a [simple html invoice template](https://github.com/sparksuite/simple-html-invoice-template). Use it, or use your own.
+
+## License
+
+Invoicer is free software; see [LICENSE](https://www.github.com/DexterLagan/invoicer/main/LICENSE) for more details.
