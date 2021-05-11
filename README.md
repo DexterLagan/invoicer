@@ -1,4 +1,4 @@
-# Invoicer
+# Invoicer - 'Never edit an invoice again'
 A dead-simple, easy-to-use minimalist billing application.
 
 <p align="center"><img src="screenshots/sample-invoice.png"></p>
