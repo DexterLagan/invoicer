@@ -5,7 +5,6 @@
 (require racket/path)
 (require racket/format)
 (require racket/string)
-(require racket/format)
 (require racket/cmdline)
 (require racket/gui/base)
 (require scribble/html/xml)
@@ -117,7 +116,7 @@
 ;; locale is optionnal, and uses the specified default locale if not specified
 (define (get-short-date-str date (locale *default-locale*))
   (parameterize ([current-locale locale])
-    (~t date "dd/mm/y")))
+    (~t date "dd/MM/y")))
 ; unit test
 (module+ test
   (check-equal?
