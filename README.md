@@ -10,7 +10,7 @@ You can <b>download</b> the latest release for <b>Windows</b> [HERE](https://git
 - produces an invoice in **one click**;
 - documents **automatically titled** with invoice number, date and client name;
 - **totals** calculation;
-- currency support;
+- **currency** support;
 - sales **tax name** and **rate**;
 - pay **interval**;
 - automatic **billing, due date**;
