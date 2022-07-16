@@ -38,6 +38,7 @@ Here is an exhaustive list of the required configuration files:
 - `tax-rate.txt`       - containing the tax name and rate (i.e. HST|13);
 - `pay-interval.txt`   - containing the pay interval (i.e. 30);
 - `locale.txt`         - containing the date locale (i.e. 'en');
+- `currency.txt`       - containing the currency symbol (i.e. '$');
 - `branch-address.txt` - containing the bank branch address;
 - `account-info.txt`   - containing the bank account information;
 - `invoice-lines.txt`  - containing the invoice lines: a brief description followed by the price, separated by a '|';
