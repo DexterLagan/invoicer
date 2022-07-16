@@ -65,8 +65,12 @@ Two ways, same result:
 1) **Double-click on Invoicer**. Browse for the client folder. Out comes a **new invoice**.
 2) **Run Invoicer** followed by the folder name **on the command line**. Out comes a **new invoice**.
 
+## Version History
+
+- v1.1 - added support for currencies via the currency.txt file.
+- v1.0 - initial version.
+
 ## Planned
-- currencies. Next version will support specifying one currency per client;
 - a way to record each invoice metadata for later retrieval and parsing;
 - global totals and sales tax for filing;
 - an invoice line composer?
