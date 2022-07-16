@@ -41,7 +41,8 @@
 
 ;;; version history
 
-; v1.0 - this version. Racket 8.0.10
+; v1.1 - this version. Added currency support. Racket 8.5.
+; v1.0 - initial version. Racket 8.0.10
 
 ;;; consts
 
@@ -58,6 +59,7 @@
 (define *invoice-number-file* "invoice-number.txt")
 (define *invoice-lines-file*  "invoice-lines.txt")
 (define *locale-file*         "locale.txt")
+(define *currency-file*       "currency.txt")
 (define *payee-file*          "payee.txt")
 (define *payor-file*          "payor.txt")
 (define *pay-interval-file*   "pay-interval.txt")
@@ -347,6 +349,7 @@
 (define invoice-number       (file->number? *invoice-number-file*))
 (define pay-interval         (file->number? *pay-interval-file*))
 (define locale               (file->string? *locale-file*))
+(define currency             (file->string? *currency-file*))
 (define invoice-lines        (file->lines*? *invoice-lines-file*))
 
 ; handle tax name and rate
@@ -424,8 +427,8 @@
                  payment-method-block
                  invoice-lines
                  tax-name
-                 (string-append "$" (~r tax-amount   #:precision '(= 2)))
-                 (string-append "$" (~r total-amount #:precision '(= 2)))))
+                 (string-append currency (~r tax-amount   #:precision '(= 2)))
+                 (string-append currency (~r total-amount #:precision '(= 2)))))
 
 ; generate invoice filename
 (define invoice-filename
